@@ -24,8 +24,16 @@ You can also just clone this repository directly if you do not want to track you
 #### Clone the repository
 
 ```shell
-git clone https://github.com/<your_user>/<your_repository> ~/.config/nvim
+git clone https://github.com/perkfly/nvim-config ~/.config/nvim
 ```
+
+#### Fix stupid clipboard issue
+
+Update:
+
+    ~/.local/share/nvim/lazy/astrocore/lua/astrocore/init.lua
+
+With: `vim.opt.clipboard = ""`
 
 #### Start Neovim
 
