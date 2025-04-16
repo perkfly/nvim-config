@@ -91,6 +91,16 @@ require("lazy").setup({
       'nvim-lualine/lualine.nvim',
       dependencies = { 'nvim-tree/nvim-web-devicons' }
     },
+    {
+      "FabijanZulj/blame.nvim",
+      lazy = false,
+      config = function()
+        require('blame').setup {
+          date_format = "%Y-%m-%d",
+          virtual_style = "float",
+        }
+      end,
+    },
   },
 
   -- Configure any other settings here. See the documentation for more details.
