@@ -38,7 +38,8 @@ require("lazy").setup({
       ---@module "neo-tree"
       ---@type neotree.Config?
       opts = {
-        -- fill any relevant options here
+        enable_git_status = false,
+        enable_diagnostics = false,
       }
     },
     {
@@ -48,6 +49,13 @@ require("lazy").setup({
     {
       'nvim-telescope/telescope.nvim', tag = '0.1.8',
       dependencies = { 'nvim-lua/plenary.nvim' }
+    },
+    {
+      "nvim-telescope/telescope-frecency.nvim",
+      version = "*",
+      config = function()
+        require("telescope").load_extension "frecency"
+      end,
     },
     {
       "folke/which-key.nvim",
@@ -100,6 +108,9 @@ require("lazy").setup({
           virtual_style = "float",
         }
       end,
+    },
+    {
+      "voldikss/vim-floaterm",
     },
   },
 
