@@ -112,6 +112,15 @@ require("lazy").setup({
     {
       "voldikss/vim-floaterm",
     },
+    {
+      's1n7ax/nvim-window-picker',
+      name = 'window-picker',
+      event = 'VeryLazy',
+      version = '2.*',
+      config = function()
+        require'window-picker'.setup()
+      end,
+    },
   },
 
   -- Configure any other settings here. See the documentation for more details.
