@@ -20,9 +20,18 @@ vim.opt.rtp:prepend(lazypath)
 -- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
+vim.g.neovide_cursor_animation_length = 0
 
 -- Setup lazy.nvim
 require("lazy").setup({
+  checker = {
+    -- automatically check for plugin updates
+    enabled = true,
+    concurrency = nil, ---@type number? set to 1 to check for updates very slowly
+    notify = true, -- get a notification when new updates are found
+    frequency = 86400 * 30, -- check for updates every month
+    check_pinned = false, -- check for pinned packages that can't be updated
+  },
   spec = {
     -- add your plugins here
     {
@@ -110,7 +119,7 @@ require("lazy").setup({
       end,
     },
     {
-      "voldikss/vim-floaterm",
+      'numToStr/FTerm.nvim'
     },
     {
       's1n7ax/nvim-window-picker',
@@ -120,6 +129,10 @@ require("lazy").setup({
       config = function()
         require'window-picker'.setup()
       end,
+    },
+    "benomahony/uv.nvim",
+    opts = {
+      picker_integration = true,
     },
   },
 
@@ -200,3 +213,8 @@ require('lualine').setup {
   inactive_winbar = {},
   extensions = {}
 }
+
+vim.api.nvim_create_user_command('TermOpen', require('FTerm').open, { bang = true })
+vim.api.nvim_create_user_command('TermClose', require('FTerm').close, { bang = true })
+vim.api.nvim_create_user_command('TermExit', require('FTerm').exit, { bang = true })
+vim.api.nvim_create_user_command('TermToggle', require('FTerm').toggle, { bang = true })
