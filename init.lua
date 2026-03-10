@@ -29,7 +29,7 @@ require("lazy").setup({
     enabled = true,
     concurrency = nil, ---@type number? set to 1 to check for updates very slowly
     notify = true, -- get a notification when new updates are found
-    frequency = 86400 * 30, -- check for updates every month
+    frequency = 86400 * 60, -- check for updates every week
     check_pinned = false, -- check for pinned packages that can't be updated
   },
   spec = {
@@ -110,8 +110,7 @@ require("lazy").setup({
     },
     {
       "FabijanZulj/blame.nvim",
-      lazy = false,
-      config = function()
+      lazy = false, config = function()
         require('blame').setup {
           date_format = "%Y-%m-%d",
           virtual_style = "float",
@@ -119,7 +118,7 @@ require("lazy").setup({
       end,
     },
     {
-      'numToStr/FTerm.nvim'
+      "voldikss/vim-floaterm",
     },
     {
       's1n7ax/nvim-window-picker',
@@ -213,8 +212,3 @@ require('lualine').setup {
   inactive_winbar = {},
   extensions = {}
 }
-
-vim.api.nvim_create_user_command('TermOpen', require('FTerm').open, { bang = true })
-vim.api.nvim_create_user_command('TermClose', require('FTerm').close, { bang = true })
-vim.api.nvim_create_user_command('TermExit', require('FTerm').exit, { bang = true })
-vim.api.nvim_create_user_command('TermToggle', require('FTerm').toggle, { bang = true })
