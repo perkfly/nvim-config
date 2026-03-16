@@ -24,12 +24,13 @@ vim.g.neovide_cursor_animation_length = 0
 
 -- Setup lazy.nvim
 require("lazy").setup({
+  -- automatically check for plugin updates
   checker = {
     -- automatically check for plugin updates
     enabled = true,
     concurrency = nil, ---@type number? set to 1 to check for updates very slowly
     notify = true, -- get a notification when new updates are found
-    frequency = 86400 * 60, -- check for updates every week
+    frequency = 86400 * 60, -- check for updates every 2 months
     check_pinned = false, -- check for pinned packages that can't be updated
   },
   spec = {
@@ -85,7 +86,8 @@ require("lazy").setup({
       },
     },
     {
-      "lewis6991/gitsigns.nvim"
+      "lewis6991/gitsigns.nvim",
+      opts = {},
     },
     {
       "lukas-reineke/indent-blankline.nvim",
@@ -99,7 +101,7 @@ require("lazy").setup({
       branch = "release",
     },
     {
-      "folke/tokyonight.nvim",
+      "neanias/everforest-nvim",
       lazy = false,
       priority = 1000,
       opts = {},
@@ -129,21 +131,21 @@ require("lazy").setup({
         require'window-picker'.setup()
       end,
     },
-    "benomahony/uv.nvim",
-    opts = {
-      picker_integration = true,
+    {
+      "benomahony/uv.nvim",
+      opts = {
+        picker_integration = true,
+      },
     },
   },
 
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "habamax" } },
-  -- automatically check for plugin updates
-  checker = { enabled = true },
 })
 
 vim.cmd.source("~/.dotfiles/vim/nvimrc")
-vim.cmd.colorscheme("tokyonight")
+vim.cmd.colorscheme("everforest")
 
 -- local highlight = {
 --   "RainbowRed",
