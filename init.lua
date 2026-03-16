@@ -104,7 +104,9 @@ require("lazy").setup({
       "neanias/everforest-nvim",
       lazy = false,
       priority = 1000,
-      opts = {},
+      config = function()
+        require("everforest").setup({})
+      end,
     },
     {
       'nvim-lualine/lualine.nvim',
