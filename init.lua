@@ -61,13 +61,6 @@ require("lazy").setup({
       dependencies = { 'nvim-lua/plenary.nvim' }
     },
     {
-      "nvim-telescope/telescope-frecency.nvim",
-      version = "*",
-      config = function()
-        require("telescope").load_extension "frecency"
-      end,
-    },
-    {
       "folke/which-key.nvim",
       event = "VeryLazy",
       opts = {
@@ -86,8 +79,7 @@ require("lazy").setup({
       },
     },
     {
-      "lewis6991/gitsigns.nvim",
-      opts = {},
+      "lewis6991/gitsigns.nvim"
     },
     {
       "lukas-reineke/indent-blankline.nvim",
@@ -104,9 +96,7 @@ require("lazy").setup({
       "neanias/everforest-nvim",
       lazy = false,
       priority = 1000,
-      config = function()
-        require("everforest").setup({})
-      end,
+      opts = {},
     },
     {
       'nvim-lualine/lualine.nvim',
@@ -133,11 +123,9 @@ require("lazy").setup({
         require'window-picker'.setup()
       end,
     },
-    {
-      "benomahony/uv.nvim",
-      opts = {
-        picker_integration = true,
-      },
+    "benomahony/uv.nvim",
+    opts = {
+      picker_integration = true,
     },
   },
 
